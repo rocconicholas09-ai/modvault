@@ -8,12 +8,13 @@ export default function LoginPage() {
   const [mode, setMode] = useState<'signin'|'signup'>('signup')
   const [msg, setMsg] = useState('')
 
-  async function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setMsg('')
-    const fn: any = mode === 'signup' ? supabase.auth.signUp : supabase.auth.signInWithPassword
-    const { error } = await fn({ email, password })
-    setMsg(error ? error.message : 'Check your email or continue')
+    const res = mode === 'signup'
+      ? await supabase.auth.signUp({ email, password })
+      : await supabase.auth.signInWithPassword({ email, password })
+    setMsg(res.error ? res.error.message : 'Check your email or continue')
   }
 
   return (

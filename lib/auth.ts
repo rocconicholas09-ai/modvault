@@ -2,7 +2,7 @@ import { cookies } from 'next/headers'
 import { createServerClient } from '@supabase/ssr'
 
 export async function createServerSupabase() {
-  // In your Next version, cookies() is async → await it:
+  // In some Next versions, cookies() is async:
   const cookieStore = await cookies()
 
   return createServerClient(
@@ -13,7 +13,7 @@ export async function createServerSupabase() {
         get(name: string) {
           return cookieStore.get(name)?.value
         },
-        // set/remove are optional for read-only usage; add later if needed.
+        // add set/remove later if you need auth helpers that mutate cookies
       },
     }
   )
