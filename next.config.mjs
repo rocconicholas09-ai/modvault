@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    // ✅ Allow production builds to succeed even if there are ESLint errors
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // let production builds complete even with ESLint errors
   },
 };
-
 export default nextConfig;
