@@ -1,5 +1,5 @@
 import { createServerSupabase } from '@/lib/auth'
-import ModForm from '@/components/mod-form'
+import ModForm from '@/app/components/mod-form'
 import type { Build, Mod, Maintenance } from '@/types'
 
 export default async function BuildPage({ params }: { params: { id: string } }) {
