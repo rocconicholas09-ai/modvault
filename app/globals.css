@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* your custom styles below */
 :root { color-scheme: dark; }
 body { min-height: 100vh; background: #0a0a0a; color: #e5e5e5; }
 a { text-underline-offset: 4px; }
